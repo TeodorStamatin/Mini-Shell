@@ -1,0 +1,25 @@
+cd .. && checkpatch.pl -f src/*.c
+/bin/sh: 1: checkpatch.pl: not found
+Makefile:22: recipe for target 'lint' failed
+make: [lint] Error 127 (ignored)
+cd .. && cpplint --recursive src/
+Done processing src/cmd.c
+Done processing src/cmd.h
+Done processing src/main.c
+Done processing src/utils.c
+Done processing src/utils.h
+cd .. && shellcheck checker/*.sh
+cd .. && shellcheck tests/*.sh
+cd .. && shellcheck tests/_test/*.sh
+
+In tests/_test/test_lib.sh line 35:
+    printf "failed  [ 0/%02d]\n" "$max_points"
+                                  ^-- SC2154: max_points is referenced but not assigned.
+
+
+In tests/_test/test_lib.sh line 83:
+    if [ -z "$test_fun_array" ]; then
+             ^-- SC2154: test_fun_array is referenced but not assigned.
+
+Makefile:22: recipe for target 'lint' failed
+make: [lint] Error 1 (ignored)

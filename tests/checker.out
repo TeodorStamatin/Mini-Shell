@@ -1,0 +1,128 @@
+make -C ../src UTIL_PATH=/home/teo/anul2/so/tema4/assignment-mini-shell/tests/../util clean
+make[1]: Entering directory '/home/teo/anul2/so/tema4/assignment-mini-shell/src'
+rm -f ../src.zip
+rm -rf main.o cmd.o utils.o /home/teo/anul2/so/tema4/assignment-mini-shell/tests/../util/parser/parser.tab.o /home/teo/anul2/so/tema4/assignment-mini-shell/tests/../util/parser/parser.yy.o mini-shell *~
+make[1]: Leaving directory '/home/teo/anul2/so/tema4/assignment-mini-shell/src'
+make clean
+make[1]: Entering directory '/home/teo/anul2/so/tema4/assignment-mini-shell/tests'
+rm -f *~
+make[1]: Leaving directory '/home/teo/anul2/so/tema4/assignment-mini-shell/tests'
+make -i SRC_PATH=../src
+make[1]: Entering directory '/home/teo/anul2/so/tema4/assignment-mini-shell/tests'
+make -C ../src UTIL_PATH=/home/teo/anul2/so/tema4/assignment-mini-shell/tests/../util CPPFLAGS=-I/home/teo/anul2/so/tema4/assignment-mini-shell/tests/../src
+make[2]: Entering directory '/home/teo/anul2/so/tema4/assignment-mini-shell/src'
+make -C /home/teo/anul2/so/tema4/assignment-mini-shell/tests/../util/parser/
+make[3]: Entering directory '/home/teo/anul2/so/tema4/assignment-mini-shell/util/parser'
+gcc  -c parser.tab.c
+gcc  -c parser.yy.c
+g++  -o UseParser UseParser.o parser.tab.o parser.yy.o
+g++  -o DisplayStructure DisplayStructure.o parser.tab.o parser.yy.o
+g++  -o CUseParser CUseParser.o parser.tab.o parser.yy.o
+make[3]: Leaving directory '/home/teo/anul2/so/tema4/assignment-mini-shell/util/parser'
+gcc -g -Wall -I/home/teo/anul2/so/tema4/assignment-mini-shell/tests/../src  -c -o main.o main.c
+gcc -g -Wall -I/home/teo/anul2/so/tema4/assignment-mini-shell/tests/../src  -c -o cmd.o cmd.c
+cmd.c: In function ‘shell_whoami’:
+cmd.c:33:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_uname’:
+cmd.c:58:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_gcc’:
+cmd.c:140:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         argv[i] = p->string; // Add each argument to the array
+                 ^
+cmd.c: In function ‘shell_cat’:
+cmd.c:172:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         argv[i] = p->string; // Add each argument to the array
+                 ^
+cmd.c: In function ‘shell_exec’:
+cmd.c:205:13: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     argv[0] = s->verb->string; // The command itself
+             ^
+cmd.c:208:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         argv[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_rm’:
+cmd.c:277:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_mkdir’:
+cmd.c:303:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_ls’:
+cmd.c:324:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_tr’:
+cmd.c:350:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_cut’:
+cmd.c:376:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_sort’:
+cmd.c:397:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_uniq’:
+cmd.c:418:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘shell_wc’:
+cmd.c:444:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         args[i] = p->string;
+                 ^
+cmd.c: In function ‘parse_simple’:
+cmd.c:519:45: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+     if (s->out != NULL && s->err != NULL && strcmp(s->out->string, s->err->string) == 0) {
+                                             ^~~~~~
+cmd.c: In function ‘run_on_pipe’:
+cmd.c:702:25: warning: unused variable ‘exit_code2’ [-Wunused-variable]
+     int exit_code1 = 0, exit_code2 = 0;
+                         ^~~~~~~~~~
+cmd.c:702:9: warning: unused variable ‘exit_code1’ [-Wunused-variable]
+     int exit_code1 = 0, exit_code2 = 0;
+         ^~~~~~~~~~
+cmd.c: In function ‘parse_command’:
+cmd.c:769:13: warning: label ‘some_label’ defined but not used [-Wunused-label]
+             some_label:
+             ^~~~~~~~~~
+At top level:
+cmd.c:678:13: warning: ‘run_in_parallel’ defined but not used [-Wunused-function]
+ static bool run_in_parallel(command_t *cmd1, command_t *cmd2, int level,
+             ^~~~~~~~~~~~~~~
+cmd.c:77:13: warning: ‘shell_cd’ defined but not used [-Wunused-function]
+ static void shell_cd(word_t *params) {
+             ^~~~~~~~
+gcc -g -Wall -I/home/teo/anul2/so/tema4/assignment-mini-shell/tests/../src  -c -o utils.o utils.c
+gcc -g -Wall main.o cmd.o utils.o /home/teo/anul2/so/tema4/assignment-mini-shell/tests/../util/parser/parser.tab.o /home/teo/anul2/so/tema4/assignment-mini-shell/tests/../util/parser/parser.yy.o -o mini-shell
+make[2]: Leaving directory '/home/teo/anul2/so/tema4/assignment-mini-shell/src'
+make[1]: Leaving directory '/home/teo/anul2/so/tema4/assignment-mini-shell/tests'
+SRC_PATH=../src ./run_all.sh
+
+                         = Testing - mini-shell =
+
+01) Testing commands without arguments......................passed  [03/100]
+02) Testing commands with arguments.........................passed  [02/100]
+03) Testing simple redirect operators.......................passed  [05/100]
+04) Testing append redirect operators.......................passed  [05/100]
+05) Testing current directory...............................passed  [05/100]
+06) Testing conditional operators...........................passed  [05/100]
+07) Testing sequential commands.............................passed  [03/100]
+08) Testing environment variables...........................passed  [05/100]
+09) Testing single pipe.....................................passed  [05/100]
+10) Testing multiple pipes..................................passed  [10/100]
+11) Testing variables and redirect..........................passed  [05/100]
+12) Testing overwritten variables...........................passed  [02/100]
+13) Testing all operators...................................failed  [ 0/100]
+14) Testing parallel operator...............................passed  [10/100]
+15) Testing big file........................................passed  [05/100]
+16) Testing sleep command...................................passed  [07/100]
+17) Testing fscanf function.................................passed  [07/100]
+18) Testing unknown command.................................failed  [ 0/100]
+
+Checker:  84/100
